@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ForBetterCommunity — Coming soon</title>
+  <title>ForBetterCommunity USA — Coming soon</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="ForBetterCommunity website is being rebuilt. Coming soon.">
+  <meta name="description" content="ForBetterCommunity USA — 501(c)(3) Montana. Site under construction. Coming soon.">
   <style>
     :root {
       --bg: #0f1115;
@@ -29,25 +29,37 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.5rem;
+      padding: 3rem 1.5rem 5rem;
       text-align: center;
+    }
+    .flag {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
     }
     .brand {
       font-size: clamp(2rem, 6vw, 3.5rem);
       font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       color: var(--fg);
     }
     .brand strong {
       font-weight: 600;
       color: var(--accent);
     }
+    .country {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       color: var(--muted);
-      max-width: 36rem;
-      margin: 1rem auto 2rem;
+      max-width: 40rem;
+      margin: 1rem auto 1.5rem;
       line-height: 1.5;
     }
     .status {
@@ -59,7 +71,7 @@
       border-radius: 999px;
       font-size: 0.9rem;
       color: var(--accent);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .status::before {
       content: "";
@@ -73,6 +85,15 @@
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
+    }
+    .entity {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .contact {
       margin-top: 1.5rem;
@@ -101,19 +122,28 @@
 </head>
 <body>
   <main>
+    <div class="flag" aria-hidden="true">🇺🇸</div>
     <div class="status">Site under construction</div>
+
     <h1 class="brand">For<strong>Better</strong>Community</h1>
+    <div class="country">USA</div>
+
     <p class="tagline">
-      We're rebuilding our website to better serve our mission.
-      Stay tuned — we'll be back online soon.
+      We're rebuilding our online presence to better serve our mission across Honduras and Guatemala. Back online soon.
     </p>
+
+    <p class="entity">
+      <strong>ForBetterCommunity USA</strong> — 501(c)(3) non-profit incorporated in Montana. We oversee field operations in Honduras and Guatemala. All donations are tax-deductible under U.S. federal law.
+    </p>
+
     <p class="contact">
       Need to reach us in the meantime?<br>
       <a href="mailto:contact@forbettercommunity.org">contact@forbettercommunity.org</a>
     </p>
   </main>
   <footer>
-    &copy; ForBetterCommunity — All rights reserved
+    &copy; ForBetterCommunity USA — All rights reserved
   </footer>
 </body>
 </html>
+

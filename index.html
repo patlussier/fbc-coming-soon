@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ForBetterCommunity — Coming soon</title>
+  <title>ForBetterCommunity Canada — Bientôt / Coming soon</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="ForBetterCommunity website is being rebuilt. Coming soon.">
+  <meta name="description" content="ForBetterCommunity Canada — LCOBNL fédérale. Site en construction. Coming soon.">
   <style>
     :root {
       --bg: #0f1115;
@@ -13,6 +13,7 @@
       --muted: #9aa0aa;
       --accent: #c8a951;
       --link: #ffffff;
+      --flag-red: #ff0000;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -29,25 +30,67 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.5rem;
+      padding: 3rem 1.5rem 5rem;
       text-align: center;
+    }
+    .lang-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.25rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(200, 169, 81, 0.2);
+      border-radius: 999px;
+      padding: 0.25rem;
+      font-size: 0.85rem;
+    }
+    .lang-toggle button {
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+    }
+    .lang-toggle button:not(.active):hover {
+      color: var(--fg);
+    }
+    .flag {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
     }
     .brand {
       font-size: clamp(2rem, 6vw, 3.5rem);
       font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       color: var(--fg);
     }
     .brand strong {
       font-weight: 600;
       color: var(--accent);
     }
+    .country {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       color: var(--muted);
-      max-width: 36rem;
-      margin: 1rem auto 2rem;
+      max-width: 40rem;
+      margin: 1rem auto 1.5rem;
       line-height: 1.5;
     }
     .status {
@@ -59,7 +102,7 @@
       border-radius: 999px;
       font-size: 0.9rem;
       color: var(--accent);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .status::before {
       content: "";
@@ -73,6 +116,15 @@
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
+    }
+    .entity {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .contact {
       margin-top: 1.5rem;
@@ -97,23 +149,67 @@
       font-size: 0.8rem;
       color: rgba(154, 160, 170, 0.5);
     }
+    [data-lang-en], [data-lang-fr] { display: none; }
+    html[lang="fr"] [data-lang-fr] { display: block; }
+    html[lang="fr"] span[data-lang-fr] { display: inline; }
+    html[lang="en"] [data-lang-en] { display: block; }
+    html[lang="en"] span[data-lang-en] { display: inline; }
   </style>
 </head>
 <body>
+  <div class="lang-toggle">
+    <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
   <main>
-    <div class="status">Site under construction</div>
+    <div class="flag" aria-hidden="true">🇨🇦</div>
+
+    <span data-lang-fr class="status">Site en construction</span>
+    <span data-lang-en class="status">Site under construction</span>
+
     <h1 class="brand">For<strong>Better</strong>Community</h1>
-    <p class="tagline">
-      We're rebuilding our website to better serve our mission.
-      Stay tuned — we'll be back online soon.
+    <div class="country">CANADA</div>
+
+    <p class="tagline" data-lang-fr>
+      Nous rebâtissons notre présence en ligne pour mieux servir notre mission au Québec et à Cuba. De retour bientôt.
     </p>
-    <p class="contact">
+    <p class="tagline" data-lang-en>
+      We're rebuilding our online presence to better serve our mission in Québec and Cuba. Back online soon.
+    </p>
+
+    <p class="entity" data-lang-fr>
+      <strong>ForBetterCommunity Canada</strong> — organisme sans but lucratif de régime fédéral (Loi canadienne sur les organisations à but non lucratif). Nous chapeautons les opérations terrain à Cuba (Santa Cruz). Reçus fiscaux émis au Canada.
+    </p>
+    <p class="entity" data-lang-en>
+      <strong>ForBetterCommunity Canada</strong> — federally incorporated non-profit organization (Canada Not-for-profit Corporations Act). We oversee ground operations in Cuba (Santa Cruz). Canadian tax receipts issued.
+    </p>
+
+    <p class="contact" data-lang-fr>
+      Besoin de nous joindre entretemps ?<br>
+      <a href="mailto:contact@forbettercommunity.org">contact@forbettercommunity.org</a>
+    </p>
+    <p class="contact" data-lang-en>
       Need to reach us in the meantime?<br>
       <a href="mailto:contact@forbettercommunity.org">contact@forbettercommunity.org</a>
     </p>
   </main>
   <footer>
-    &copy; ForBetterCommunity — All rights reserved
+    &copy; ForBetterCommunity Canada — <span data-lang-fr>Tous droits réservés</span><span data-lang-en>All rights reserved</span>
   </footer>
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('fbc-canada-lang', lang); } catch (e) {}
+    }
+    (function init() {
+      let saved = null;
+      try { saved = localStorage.getItem('fbc-canada-lang'); } catch (e) {}
+      const browser = (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr';
+      setLang(saved || browser);
+    })();
+  </script>
 </body>
 </html>
+
